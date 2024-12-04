@@ -1,0 +1,16 @@
+.pdf-uploader {
+    margin: 20px;
+  }
+  
+  .error-message {
+    color: red;
+  }
+  
+  .success-message {
+    color: green;
+  }
+  
+  .upload-form input {
+    margin-right: 10px;
+  }
+  

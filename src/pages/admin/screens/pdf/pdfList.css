@@ -1,0 +1,16 @@
+.pdf-list {
+    margin: 20px;
+  }
+  
+  .error-message {
+    color: red;
+  }
+  
+  .pdf-list ul {
+    list-style-type: none;
+  }
+  
+  .pdf-list li {
+    margin: 5px 0;
+  }
+  
