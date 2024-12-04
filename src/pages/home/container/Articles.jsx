@@ -18,6 +18,7 @@ const Articles = () => {
       console.log(error);
     },
   });
+  console.log(data)
 
   return (
     <section className="flex flex-col container mx-auto px-5 py-10">
@@ -32,7 +33,7 @@ const Articles = () => {
         ) : isError ? (
           <ErrorMessage message="Couldn't fetch the posts data" />
         ) : (
-          data?.data.map((post) => (
+          data.data.map((post) => (
             <ArticleCard
               key={post._id}
               post={post}
