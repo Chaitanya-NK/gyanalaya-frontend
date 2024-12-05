@@ -22,37 +22,48 @@ import PDFList from "./pages/admin/screens/pdf/pdfList";
 import Pricing from "./pages/pricing/Pricing";
 import FAQ from "./pages/faq/FAQ";
 
-function App() {
-  return (
-    <div className="App font-opensans">
+const routeConfig = [
+    { path: "/", element: <HomePage /> },
+    { path: "/blogs", element: <BlogPage /> },
+    { path: "/about", element: <AboutPage /> },
+    { path: "/pricing", element: <Pricing /> },
+    { path: "/faq", element: <FAQ /> },
+    { path: "/blog/:slug", element: <ArticleDetailPage /> },
+    { path: "/register", element: <RegisterPage /> },
+    { path: "/login", element: <LoginPage /> },
+    { path: "/profile", element: <ProfilePage /> },
+    {
+      path: "/admin", element: <AdminLayout />, children: [
+        { path: "", element: <Admin /> },
+        { path: "comments", element: <Comments /> },
+        { path: "pdf", element: <PDFUploader /> },
+        { path: "pdfs", element: <PDFList /> },
+        { path: "posts/manage", element: <ManagePosts /> },
+        { path: "posts/manage/edit/:slug", element: <EditPost /> },
+        { path: "categories/manage", element: <Categories /> },
+        { path: "categories/manage/edit/:slug", element: <EditCategories /> },
+        { path: "users/manage", element: <Users /> },
+      ]
+    }
+  ];
+  
+  const App = () => {
+    return (
       <Routes>
-        <Route index path="/" element={<HomePage />} />
-        <Route path="/blog" element={<BlogPage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/pricing" element={<Pricing />} />
-        <Route path="/faq" element={<FAQ />} />
-        <Route path="/blog/:slug" element={<ArticleDetailPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/profile" element={<ProfilePage />} />
-        <Route path="/admin" element={<AdminLayout />}>
-          <Route index element={<Admin />} />
-          <Route path="comments" element={<Comments />} />
-          <Route path="pdf" element={<PDFUploader />} />
-          <Route path="pdfs" element={<PDFList />} />
-          <Route path="posts/manage" element={<ManagePosts />} />
-          <Route path="posts/manage/edit/:slug" element={<EditPost />} />
-          <Route path="categories/manage" element={<Categories />} />
-          <Route
-            path="categories/manage/edit/:slug"
-            element={<EditCategories />}
-          />
-          <Route path="users/manage" element={<Users />} />
-        </Route>
+        {routeConfig.map(({ path, element, children }, index) => (
+          children ? (
+            <Route key={index} path={path} element={element}>
+              {children.map((child, idx) => (
+                <Route key={idx} path={child.path} element={child.element} />
+              ))}
+            </Route>
+          ) : (
+            <Route key={index} path={path} element={element} />
+          )
+        ))}
       </Routes>
-      <Toaster />
-    </div>
-  );
-}
+    );
+  };
+  
 
 export default App;

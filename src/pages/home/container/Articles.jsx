@@ -43,7 +43,7 @@ const Articles = () => {
         )}
       </div>
       <Link
-        to="/blog"
+        to="/blogs"
         className="mx-auto flex items-center gap-x-2 font-bold text-primary border-2 border-primary px-6 py-3 rounded-lg"
       >
         <span>More articles</span>
