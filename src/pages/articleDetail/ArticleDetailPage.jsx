@@ -19,6 +19,7 @@ const ArticleDetailPage = () => {
   const { slug } = useParams();
   const userState = useSelector((state) => state.user);
   const [breadCrumbsData, setbreadCrumbsData] = useState([]);
+  // eslint-disable-next-line no-unused-vars
   const [body, setBody] = useState(null);
 
   const { data, isLoading, isError } = useQuery({

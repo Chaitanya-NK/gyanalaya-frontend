@@ -10,9 +10,7 @@ const AdminLayout = () => {
   const userState = useSelector((state) => state.user);
 
   const {
-    data: profileData,
     isLoading: profileIsLoading,
-    error: profileError,
   } = useQuery({
     queryFn: () => {
       return getUserProfile({ token: userState.userInfo.token });
