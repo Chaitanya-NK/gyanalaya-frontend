@@ -105,13 +105,13 @@ const BlogPage = () => {
             ))
           )}
         </div>
-        {!isLoading && (
+        {/* {!isLoading && (
           <Pagination
             onPageChange={(page) => handlePageChange(page)}
             currentPage={currentPage}
             totalPageCount={JSON.parse(data?.headers?.["x-totalpagecount"])}
           />
-        )}
+        )} */}
       </section>
     </MainLayout>
   );
