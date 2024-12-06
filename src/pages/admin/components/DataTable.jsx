@@ -86,7 +86,7 @@ const DataTable = ({
                 <Pagination
                   onPageChange={(page) => setCurrentPage(page)}
                   currentPage={currentPage}
-                  totalPageCount={JSON.parse(headers?.["x-totalpagecount"])}
+                  // totalPageCount={JSON.parse(headers?.["x-totalpagecount"])}
                 />
               )}
             </div>
