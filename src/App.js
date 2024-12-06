@@ -49,6 +49,7 @@ const routeConfig = [
   
   const App = () => {
     return (
+      <>
       <Routes>
         {routeConfig.map(({ path, element, children }, index) => (
           children ? (
@@ -62,6 +63,8 @@ const routeConfig = [
           )
         ))}
       </Routes>
+      <Toaster />
+      </>
     );
   };
   
